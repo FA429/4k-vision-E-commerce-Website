@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 const isDevelopment = import.meta.env.MODE === 'development'
 let baseURL = 'http://localhost:5125/api/v1'
 
