@@ -88,8 +88,8 @@ export function Dashboard() {
   return (
     <>
       <NavbarDefault />
-      <form className="mt-10 w-1/3 mx-auto" onSubmit={handleSubmit}>
-        <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">Add new product</h3>
+      <form className="mt-10 w-1/3 mx-auto mt-50" onSubmit={handleSubmit}>
+        <h3 className="scroll-m-20 mt-96 text-2xl font-semibold tracking-tight">Add new product</h3>
 
         <select name="categoryId" onChange={handleSelect}>
           <option selected>Select Category</option>

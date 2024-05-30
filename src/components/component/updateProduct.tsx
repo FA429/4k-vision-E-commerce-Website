@@ -32,6 +32,7 @@ export function UpdateProduct({ product }: { product: Product }) {
 
   const handleUpdate = async (e: FormEvent) => {
     e.preventDefault()
+
     const productUpdate = {
       name: updateProduct.name,
       image: updateProduct.image,
@@ -40,7 +41,7 @@ export function UpdateProduct({ product }: { product: Product }) {
       quantity: updateProduct.quantity
     }
     // console.log("update product in submit button", updateProduct)
-    await ProductService.UpdateOne(updateProduct.id, updateProduct)
+    await ProductService.UpdateOne(updateProduct.id, productUpdate)
     queryClient.invalidateQueries({ queryKey: ["products"] })
   }
 
@@ -79,6 +80,7 @@ export function UpdateProduct({ product }: { product: Product }) {
               <Input
                 id="price"
                 name="price"
+                type="number"
                 defaultValue={updateProduct.price}
                 className="col-span-3"
                 onChange={handleChange}
@@ -115,6 +117,7 @@ export function UpdateProduct({ product }: { product: Product }) {
               <Input
                 id="quantity"
                 name="quantity"
+                type="number"
                 defaultValue={updateProduct.quantity}
                 className="col-span-3"
                 onChange={handleChange}

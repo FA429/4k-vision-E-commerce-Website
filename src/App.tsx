@@ -8,6 +8,7 @@ import { Productdetails } from "./pages/productDetails"
 import { Login } from "./pages/login"
 import { SignUp } from "./pages/signup"
 import { PrivateRoute } from "./components/component/privateRoute"
+import { ContactHera } from "./pages/contacthera"
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,9 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />
+  },{path:"/contacthera",
+  element: <ContactHera/>
+
   },
   {
     path: "/dashboard",
@@ -33,7 +37,7 @@ const router = createBrowserRouter([
   {
     path: "/products/:productId",
     element: <Productdetails />
-  }
+  },
 ])
 type GlobalContextType = {
   state: GlobalState

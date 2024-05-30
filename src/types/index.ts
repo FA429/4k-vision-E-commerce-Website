@@ -11,7 +11,7 @@ export type Product = {
 
 export type ProductWithoutId = Omit<Product, 'id'>
 
-export type ProductUpdate = Omit<ProductWithoutId, 'categoryId'>
+export type ProductUpdate = Omit<ProductWithoutId, 'categoryId' | 'background'>
 
 export type Category =  {
   id: string,
