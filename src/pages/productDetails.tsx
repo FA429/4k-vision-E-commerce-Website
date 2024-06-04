@@ -43,49 +43,32 @@ export function Productdetails({ productDetiles }: { productDetiles: Product }) 
   return (
     <>
     <NavbarDefault/>
-      <header className="bg-white text-black py-4">
-        <div className="container mx-auto flex items-center justify-between">
-          <Link className="text-xl font-bold m-10" to="#">
-            <span>4K-Vision</span>
-          </Link>
-          <nav className="space-x-4 ">
-            <Link className="hover:text-gray-400" to=",">
-              Home
-            </Link>
-            <Link className="hover:text-gray-400" to="/dashboard">
-              DashBoard
-            </Link>
-            <Link className="hover:text-gray-400" to="#">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </header>
-      <main className="py-12 bg-[#DFD0B8]">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            {/* <img
-              alt="Product Image"
-              className="w-full rounded-lg object-cover"
-              height={600}
-              src="../../public/images/mavic-3-pro.mp4"
-              style={{
-                aspectRatio: "600/600",
-                objectFit: "cover"
-              }}
-              width={600}
-            /> */}
-            <video id="backVideo" className="videoTag" autoPlay loop muted width={600} height={600}>
-              <source src="../../public/images/mavic-3-pro.mp4" type="video/mp4" />
+    <div>
+        <video id="backVideo" className="videoTag" autoPlay loop muted width={1600} height={900}>
+              <source src="../../public/images/homeVidoe.mp4" type="video/mp4" />
             </video>
+        </div>
+      <main className="flex mt-56  ">
+        
+        <div className="  container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex">
+          <img
+                    alt="Product Image"
+                    className="object-cover w-full h-auto"
+                    height={320}
+                    src={product.image}
+                    
+                    width={400}
+                  />           
           </div>
-          <div className="space-y-6">
+          <div className="space-y-6 ">
             <div>
-              <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
-              <p className="text-gray-500">{product.description}</p>
+              <h1 className="flex text-3xl font-bold mb-56">{product.name}</h1>
+              <p className="flex text-gray-500">{product.description}</p>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-2xl font-bold">${product.price}</span>
+            
               <Button
                 onClick={() => handleAddCart(product)}
                 className="bg-gray-900 hover:bg-gray-800 text-white"

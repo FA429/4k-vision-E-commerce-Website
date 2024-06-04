@@ -19,12 +19,11 @@ import users from "@/api/users"
 //   searchBy?: string
 // }
 
-export function NavbarDefault({ handleSearch, handleChange, searchBy }: NavbarProps) {
+export function NavbarDefault() {
   const context = useContext(GlobalContext)
   if (!context) throw Error("Context is missing")
   const { state, handleRemoveUser } = context
 
-  const hasSearch = !!handleSearch && !!handleChange
   const handleLogout = () => {
     if (typeof window !== undefined) {
       window.location.reload()
@@ -35,68 +34,12 @@ export function NavbarDefault({ handleSearch, handleChange, searchBy }: NavbarPr
     handleRemoveUser()
   }
   return (
-    //   <nav className="flex fixed top-0 fixed top-0 bg-white square border h-16 w-full items-center justify-between md:px-6 ">
-    //     <Link className="flex items-center gap-2" to="/">
-    //       <img src="../../public/images/logo.png"
-    //                 height={200}
-    //                 width={65}
+   
 
-    //       />
-    //     </Link>
-    //     <nav className="hidden gap-4 md:flex">
-    //       <Link className="text-sm font-medium hover:underline" to="/">
-    //         Home
-    //       </Link>
-    //       {state.user?.role === Role.Admin && (
-    //         <Link className="text-sm font-medium hover:underline" to="/dashboard">
-    //           DashBoard
-    //         </Link>
-    //       )}
-
-    //       <Link className="text-sm font-medium hover:underline" to="/">
-    //         Contact
-    //       </Link>
-    //     </nav>
-    //     {hasSearch && (
-    //       <form className=" w-full md:w-1/2 mx-auto mb-3 items-end" onSubmit={handleSearch}>
-    //         <input
-    //           type="search"
-    //           placeholder="Search for a product"
-    //           onChange={handleChange}
-    //           value={searchBy}
-    //         />
-    //         <Button type="submit" variant="outline">
-    //           Search
-    //         </Button>
-    //       </form>
-    //     )}
-    //     <div className="flex justify-center items-center gap-4">
-    //       <Cart />
-    //     </div>
-    //     <div className="flex items-center gap-4">
-    //       {!state.user && (
-    //         <Link to="/signup">
-    //           <Button variant="outline">Sign in</Button>
-    //         </Link>
-    //       )}
-    //       {!state.user && (
-    //         <Link to="/login">
-    //           <Button>Login</Button>
-    //         </Link>
-    //       )}
-    //       {state.user && (
-    //         <Button variant="outline" onClick={handleLogout}>
-    //           LogOut
-    //         </Button>
-    //       )}
-    //     </div>
-    //   </nav>
-
-    <header className="flex fixed top-0 h-16 font-weight: 900; w-full items-center square border justify-between px-6 md:px-6 text-4xl	">
-      <Link className="flex items-center gap-2" to="#">
-        <span className="h-6 w-6">
-          <img src="../../public/images/logo.png"></img>
-        </span>
+    <header className="flex fixed top-0 h-16 font-weight: 900; w-full items-center square border justify-between px-6 md:px-6 text-4xl bg-white	">
+      <Link className="flex items-center gap-2" to="/">
+    
+      <span className="font-serif">4K-Vision</span>  
       </Link>
       <nav className="hidden md:flex">
         <NavigationMenu>
@@ -140,12 +83,12 @@ export function NavbarDefault({ handleSearch, handleChange, searchBy }: NavbarPr
             <UserIcon className="h-6 w-6" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>{!state.user && <Link to="#">Login</Link>}</DropdownMenuItem>
-            <DropdownMenuItem>{!state.user && <Link to="#">Sign Up</Link>}</DropdownMenuItem>
+            <DropdownMenuItem>{!state.user && <Link to="/login">Login</Link>}</DropdownMenuItem>
+            <DropdownMenuItem>{!state.user && <Link to="/signup">Sign Up</Link>}</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               {state.user && (
-                <Link to="#" onClick={handleLogout}>
+                <Link to="/" onClick={handleLogout}>
                   Logout
                 </Link>
               )}
@@ -189,8 +132,8 @@ export function NavbarDefault({ handleSearch, handleChange, searchBy }: NavbarPr
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem>{!state.user && <Link to="#">Login</Link>}</DropdownMenuItem>
-                <DropdownMenuItem>{!state.user && <Link to="#">Sign Up</Link>}</DropdownMenuItem>
+                <DropdownMenuItem>{!state.user && <Link to="/signup">Login</Link>}</DropdownMenuItem>
+                <DropdownMenuItem>{!state.user && <Link to="/signup">Sign Up</Link>}</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   {state.user && (

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 
-// import { heroVieo} from "../../public/images/homeVidoe.mp4"
 export function Hero() {
   return (
     <section className="w-full my-12 pt-12 md:pt-24 lg:pt-32">
@@ -9,11 +8,10 @@ export function Hero() {
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
-                Unlock the Power of the Web
+                Photography Is The Beauty Of Life Captured.
               </h1>
               <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                Discover a platform that empowers you to build, deploy, and scale exceptional web
-                experiences with ease.
+                Discover a different that range of drone models, from entertainment to Photography.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">

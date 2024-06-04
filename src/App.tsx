@@ -9,6 +9,9 @@ import { Login } from "./pages/login"
 import { SignUp } from "./pages/signup"
 import { PrivateRoute } from "./components/component/privateRoute"
 import { ContactHera } from "./pages/contacthera"
+import { Toaster } from "./components/ui/toaster"
+
+
 
 const router = createBrowserRouter([
   {
@@ -37,7 +40,7 @@ const router = createBrowserRouter([
   {
     path: "/products/:productId",
     element: <Productdetails />
-  },
+  }
 ])
 type GlobalContextType = {
   state: GlobalState
@@ -107,6 +110,7 @@ function App() {
   }
   return (
     <div className="App">
+      <Toaster/>
       <GlobalContext.Provider
         value={{ state, handleAddCart, handleDeleteFromCart, handleStoreUser,handleRemoveUser }}
       >

@@ -10,6 +10,8 @@ import { GlobalContext } from "@/App"
 import { Link, useSearchParams } from "react-router-dom"
 import { Hero } from "@/components/hero"
 import { Button } from "@/components/ui/button"
+import { useToast } from "@/components/ui/use-toast"
+
 
 export function Home() {
   const queryClient = useQueryClient()
@@ -22,6 +24,8 @@ export function Home() {
   if (!context) throw Error("Context is missing")
 
   const { state, handleRemoveUser } = context
+  const { toast } = useToast()
+
 
   const { handleAddCart } = context
 
@@ -56,7 +60,7 @@ export function Home() {
 
   return (
     <>
-      <NavbarDefault handleSearch={handleSearch} searchBy={searchBy} handleChange={handleChange} />
+      <NavbarDefault />
       <div className="flex items-center mb-30">
         <Hero />
       </div>
@@ -103,7 +107,18 @@ export function Home() {
                   </CardContent>
                   <CardFooter className="flex justify-between">
                     <div className="inline-flex items-center gap-4 justify-center rounded-md  px-4 py-2 text-sm font-medium  transition-colors  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2d2d2d] disabled:pointer-events-none disabled:opacity-50 dark:bg-[#ff6b6b] dark:text-white dark:hover:bg-[#ff4d4d] dark:focus-visible:ring-[#ff3333] animate-pulse">
-                      <Button onClick={() => handleAddCart(product)}>Add to Cart</Button>
+
+                    
+                    <Button onClick={() => {handleAddCart(product)
+                    toast({
+                      description: "Your message has been sent.",
+                    })
+                      
+                     }} >Add to Cart</Button>
+
+
+                    
+
                       <Link className=" w-max" to={`/products/${product.id}`}>
                         View Details
                       </Link>
